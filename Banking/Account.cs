@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Banking {
 	abstract class Account {
 
+		public string AccountNumber { get; set; }
 		public string Owner { get; set; }
 		public string Description { get; set; }
-		public decimal Balance { get; set; }
+		public decimal Balance { get; private set; }
 
 		public void Deposit(decimal Amount) {
 			if (Amount <= 0) {
@@ -31,8 +32,8 @@ namespace Banking {
 			Balance -= Amount;
 		}
 
-		public decimal GetBlance() {
-			return Balance;
+		public decimal GetBalance() {
+			return Decimal.Round(Balance, 2);
 		}
 
 		public void Print() {

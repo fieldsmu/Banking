@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 namespace Banking {
 	class Savings : Account {
 
-		public string AccountNumber { get; set; }
 		public decimal InterestRate { get; set; }
 		public int InterestPeriod { get; set; }
 
 		public void CalculateInterest(int AmountOfPeriods) {
 			decimal InterestRatePerPeriod = InterestRate / InterestPeriod;
-			decimal Interest = GetBalance() * InterestRatePerPeriod * AmountOfPeriods;
+			decimal Interest = Balance * InterestRatePerPeriod * AmountOfPeriods;
 			Deposit(Interest);
-		}
-
-		public decimal GetBalance() {
-			return Balance;
 		}
 
 		public decimal GetInterestRate() {

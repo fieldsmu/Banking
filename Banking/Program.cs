@@ -11,8 +11,9 @@ namespace Banking {
 			Checking Checking = new Checking("45069", "This is my checking account") {
 				Owner = "Fields, Marcus",
 			};
-			Checking.Deposit(1000);
+			Checking.Deposit(10000);
 			Checking.Withdrawl(500);
+			Checking.WriteCheck("Porsche of Kings Auto Mall", 300);
 
 			Savings Savings = new Savings("45070", "This is my savings account") {
 				Owner = "Fields, Marcus",
@@ -21,8 +22,12 @@ namespace Banking {
 			Savings.Deposit(2000);
 			Savings.Withdrawl(700);
 
-			Checking.Print();
-			Savings.Print();
+			List<Account> Accounts = new List<Account> { Checking, Savings };
+			decimal TotalOfAllAccounts = 0;
+			foreach (Account Account in Accounts) {
+				TotalOfAllAccounts += Account.GetBalance();
+				Account.Print();
+			}
 		}
 	}
 }

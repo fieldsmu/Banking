@@ -8,7 +8,6 @@ namespace Banking {
 	class Checking : Account {
 
 		public int NextCheckNumber { get; set; } = 1;
-		public string AccountNumber { get; set; }
 
 		public void WriteCheck(string Payee, decimal Amount) {
 			int CheckNumber = NextCheckNumber++;
